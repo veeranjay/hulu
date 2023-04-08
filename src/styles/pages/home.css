@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .navbar-menu {
+    @apply h-full;
+  }
+  .actions {
+    @apply h-full ml-auto flex items-center justify-center;
+  }
+  .navbar-menu-item {
+    @apply flex items-center justify-center 
+    rounded-xl px-3 py-1
+    text-sm text-white/50
+    transition-all duration-300
+    font-medium
+    cursor-pointer;
+  }
+  .navbar-menu-item-selected {
+    @apply text-[black] bg-white;
+  }
+  .filter-item {
+    @apply opacity-40 text-xs font-medium text-white
+     px-3 py-[2px] 
+     rounded-full border-2 border-white
+     cursor-pointer;
+  }
+  .filter-item-selected {
+    @apply opacity-100 border-[white];
+  }
+  /* .detailed-list .controls .arrows{
+    @apply ;
+  } */
+}

@@ -1,57 +1,43 @@
 import { useState, useRef } from "react";
-import "../../styles/home.css";
+import "../../styles/pages/home.css";
 
-import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
-
+import { SearchOutlined } from "@ant-design/icons";
+import { Heading1, DetailedList } from "../../components/Data_Display";
 const Home = () => {
   const [selectedTab, setSelectedTab] = useState("all");
 
   return (
-    <div className="home bg-black w-full h-full flex flex-col">
+    <div className="home bg-black w-screen h-screen flex flex-col">
       <Navbar selectTab={{ select: setSelectedTab, current: selectedTab }} />
-      <Filter />
-      <div className="simple-list">
-        <div className="flex items-center w-[5000px]">
-          <div className="list-item"></div>
-          <div className="list-item"></div>
-          <div className="list-item"></div>
-          <div className="list-item"></div>
-        </div>
-      </div>
+      {/* <Filter /> */}
 
-      <div className="detailed-list">
-        <div className="toolbar">
-          <div className="title">
-            <div className="rounded-xl bg-[#ff0d0d] w-[5px] h-[23px]"></div>
-            <h4 className="mx-2">Awarded Productions</h4>
-          </div>
-          <div className="controls">
-            <div className="arrows text-xs">
-              <ArrowLeftOutlined className="p-2 cursor-pointer rounded-full " />
-              <ArrowRightOutlined className="p-2 cursor-pointer rounded-full " />
-            </div>
-            <div className="button">See All</div>
-          </div>
-        </div>
-        <div className="list-wrapper">
-          <div className="list-item">
-            <div className="image"></div>
-            <div className="info"></div>
-          </div>
-          <div className="list-item">
-            <div className="image"></div>
-            <div className="info"></div>
-          </div>
-          <div className="list-item">
-            <div className="image"></div>
-            <div className="info"></div>
-          </div>
-          <div className="list-item">
-            <div className="image"></div>
-            <div className="info"></div>
-          </div>
-        </div>
-      </div>
+      <Heading1>TV Shows</Heading1>
+
+      <DetailedList
+        title="ADULT ANIMATION"
+        data={[
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/rYv1xgTI2Vc2CmdBPeWHG3eDayj.jpg",
+            info: { title: "The Last Of Us" },
+          },
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/biPTe4FGdy5eDTPFoiXO0JpFJEY.jpg",
+            info: { title: "The Mandalorian" },
+          },
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/lcNf2WSdRISnvetLIvRbAzheg0D.jpg",
+            info: { title: "Inside Job" },
+          },
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/bMoVrgArQrELqEKEqicMXMySCpT.jpg",
+            info: { title: "Rick and Morty" },
+          },
+        ]}
+      />
     </div>
   );
 };
@@ -98,16 +84,15 @@ const Filter = () => {
 
 const Navbar = ({ selectTab }) => {
   return (
-    <div className="navbar flex items-center h-20 w-full px-8 transition-all duration-300">
+    <div className="navbar flex items-center h-20 w-full px-8 transition-all duration-300 ">
       <div
         className="logo flex justify-center items-center text-white
       pr-6 h-8"
       >
         <img
-          className="h-full"
-          src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo-2006.png"
+          className="h-[22px]"
+          src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Hulu_Logo.svg"
         />
-        Original
       </div>
       <div className="navbar-menu flex items-center justify-evenly w-[550px]">
         <div
@@ -160,6 +145,9 @@ const Navbar = ({ selectTab }) => {
         >
           News
         </div>
+      </div>
+      <div className="actions ">
+        <SearchOutlined className="text-white font-medium bg-white/[20%] rounded-full cursor-pointer p-2" />
       </div>
     </div>
   );
