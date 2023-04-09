@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 @layer components {
-  .simple-list {
-    @apply py-10 px-8 flex w-full overflow-x-hidden;
-  }
-  .simple-list .list-item {
-    /* box-shadow: 5px 5px 3px rgba(255, 255, 255, 0.3); */
-    @apply overflow-hidden mx-8 flex rounded-xl bg-zinc-600 h-[230px] w-[155px]
-    animate-pulse;
-  }
-
   .detailed-list {
     @apply flex flex-col py-6 px-8 w-full overflow-hidden;
   }
@@ -41,6 +32,42 @@
     @apply flex items-center mx-2 ml-auto h-full;
   }
   .detailed-list .controls .button {
+    @apply bg-white/[15%] px-4 py-[6px] rounded-full text-xs cursor-pointer 
+    hover:opacity-[70%]
+    mx-2
+    transition-all duration-300;
+  }
+
+  .simple-list {
+    @apply flex flex-col py-6 px-8 w-full overflow-hidden;
+  }
+  .simple-list .toolbar {
+    @apply flex items-center w-full px-8 text-white;
+  }
+  .simple-list .toolbar .title {
+    @apply flex items-center;
+  }
+  .simple-list .list-wrapper {
+    @apply flex py-6 items-center w-[5000px];
+  }
+  .simple-list .list-item-wrapper {
+    @apply mx-8;
+  }
+  .simple-list .list-item {
+    @apply flex rounded-xl bg-zinc-800
+    w-[280px] h-[450px]
+    overflow-hidden
+    /* border-4 border-transparent */
+    hover:border-white
+    hover:border-4
+    cursor-pointer
+    /* animate-pulse; */;
+  }
+
+  .simple-list .controls {
+    @apply flex items-center mx-2 ml-auto h-full;
+  }
+  .simple-list .controls .button {
     @apply bg-white/[15%] px-4 py-[6px] rounded-full text-xs cursor-pointer 
     hover:opacity-[70%]
     mx-2

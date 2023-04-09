@@ -2,25 +2,40 @@ import { useState, useRef } from "react";
 import "../../styles/pages/home.css";
 
 import { SearchOutlined } from "@ant-design/icons";
-import { Heading1, DetailedList } from "../../components/Data_Display";
+import {
+  Heading1,
+  DetailedList,
+  SimpleList,
+} from "../../components/Data_Display";
 const Home = () => {
-  const [selectedTab, setSelectedTab] = useState("all");
+  const [selectedTab, setSelectedTab] = useState("tv-shows");
 
   return (
-    <div className="home bg-black w-screen h-screen flex flex-col">
+    <div className="home bg-black w-full h-full flex flex-col">
       <Navbar selectTab={{ select: setSelectedTab, current: selectedTab }} />
       {/* <Filter /> */}
 
       <Heading1>TV Shows</Heading1>
-
-      <DetailedList
-        title="ADULT ANIMATION"
+      <SimpleList
+        title="POPULAR"
         data={[
           {
             backdrop:
-              "https://www.themoviedb.org/t/p/original/rYv1xgTI2Vc2CmdBPeWHG3eDayj.jpg",
-            info: { title: "The Last Of Us" },
+              "https://www.themoviedb.org/t/p/original/phv2Jc4H8cvRzvTKb9X1uKMboTu.jpg",
           },
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/hGFjtg1p473Lo8F2LVIQydBHZ1X.jpg",
+          },
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/vJU3rXSP9hwUuLeq8IpfsJShLOk.jpg",
+          },
+        ]}
+      />
+      <DetailedList
+        title="ADULT ANIMATION"
+        data={[
           {
             backdrop:
               "https://www.themoviedb.org/t/p/original/biPTe4FGdy5eDTPFoiXO0JpFJEY.jpg",
@@ -34,6 +49,11 @@ const Home = () => {
           {
             backdrop:
               "https://www.themoviedb.org/t/p/original/bMoVrgArQrELqEKEqicMXMySCpT.jpg",
+            info: { title: "Rick and Morty" },
+          },
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/z9EgF0rxzNgRmiDgeokUGpLh9kY.jpg",
             info: { title: "Rick and Morty" },
           },
         ]}
@@ -97,13 +117,13 @@ const Navbar = ({ selectTab }) => {
       <div className="navbar-menu flex items-center justify-evenly w-[550px]">
         <div
           className={`navbar-menu-item ${
-            selectTab.current == "all" ? "navbar-menu-item-selected" : ""
+            selectTab.current == "tv-shows" ? "navbar-menu-item-selected" : ""
           }`}
           onClick={() => {
-            selectTab.select("all");
+            selectTab.select("tv-shows");
           }}
         >
-          All
+          TV Shows
         </div>
         <div
           className={`navbar-menu-item ${
@@ -117,33 +137,33 @@ const Navbar = ({ selectTab }) => {
         </div>
         <div
           className={`navbar-menu-item ${
-            selectTab.current == "series" ? "navbar-menu-item-selected" : ""
+            selectTab.current == "originals" ? "navbar-menu-item-selected" : ""
           }`}
           onClick={() => {
-            selectTab.select("series");
+            selectTab.select("originals");
           }}
         >
-          Series
+          Originals
         </div>
         <div
           className={`navbar-menu-item ${
-            selectTab.current == "trends" ? "navbar-menu-item-selected" : ""
+            selectTab.current == "kids" ? "navbar-menu-item-selected" : ""
           }`}
           onClick={() => {
-            selectTab.select("trends");
+            selectTab.select("kids");
           }}
         >
-          Trends
+          Kids
         </div>
         <div
           className={`navbar-menu-item ${
-            selectTab.current == "news" ? "navbar-menu-item-selected" : ""
+            selectTab.current == "networks" ? "navbar-menu-item-selected" : ""
           }`}
           onClick={() => {
-            selectTab.select("news");
+            selectTab.select("networks");
           }}
         >
-          News
+          Networks
         </div>
       </div>
       <div className="actions ">
