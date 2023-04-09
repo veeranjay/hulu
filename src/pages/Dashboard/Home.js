@@ -1,57 +1,63 @@
 import { useState, useRef } from "react";
-import "../../styles/home.css";
+import "../../styles/pages/home.css";
 
-import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
-
+import { SearchOutlined } from "@ant-design/icons";
+import {
+  Heading1,
+  DetailedList,
+  SimpleList,
+} from "../../components/Data_Display";
 const Home = () => {
-  const [selectedTab, setSelectedTab] = useState("all");
+  const [selectedTab, setSelectedTab] = useState("tv-shows");
 
   return (
     <div className="home bg-black w-full h-full flex flex-col">
       <Navbar selectTab={{ select: setSelectedTab, current: selectedTab }} />
-      <Filter />
-      <div className="simple-list">
-        <div className="flex items-center w-[5000px]">
-          <div className="list-item"></div>
-          <div className="list-item"></div>
-          <div className="list-item"></div>
-          <div className="list-item"></div>
-        </div>
-      </div>
+      {/* <Filter /> */}
 
-      <div className="detailed-list">
-        <div className="toolbar">
-          <div className="title">
-            <div className="rounded-xl bg-[#ff0d0d] w-[5px] h-[23px]"></div>
-            <h4 className="mx-2">Awarded Productions</h4>
-          </div>
-          <div className="controls">
-            <div className="arrows text-xs">
-              <ArrowLeftOutlined className="p-2 cursor-pointer rounded-full " />
-              <ArrowRightOutlined className="p-2 cursor-pointer rounded-full " />
-            </div>
-            <div className="button">See All</div>
-          </div>
-        </div>
-        <div className="list-wrapper">
-          <div className="list-item">
-            <div className="image"></div>
-            <div className="info"></div>
-          </div>
-          <div className="list-item">
-            <div className="image"></div>
-            <div className="info"></div>
-          </div>
-          <div className="list-item">
-            <div className="image"></div>
-            <div className="info"></div>
-          </div>
-          <div className="list-item">
-            <div className="image"></div>
-            <div className="info"></div>
-          </div>
-        </div>
-      </div>
+      <Heading1>TV Shows</Heading1>
+      <SimpleList
+        title="POPULAR"
+        data={[
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/phv2Jc4H8cvRzvTKb9X1uKMboTu.jpg",
+          },
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/hGFjtg1p473Lo8F2LVIQydBHZ1X.jpg",
+          },
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/vJU3rXSP9hwUuLeq8IpfsJShLOk.jpg",
+          },
+        ]}
+      />
+      <DetailedList
+        title="ADULT ANIMATION"
+        data={[
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/biPTe4FGdy5eDTPFoiXO0JpFJEY.jpg",
+            info: { title: "The Mandalorian" },
+          },
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/lcNf2WSdRISnvetLIvRbAzheg0D.jpg",
+            info: { title: "Inside Job" },
+          },
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/bMoVrgArQrELqEKEqicMXMySCpT.jpg",
+            info: { title: "Rick and Morty" },
+          },
+          {
+            backdrop:
+              "https://www.themoviedb.org/t/p/original/z9EgF0rxzNgRmiDgeokUGpLh9kY.jpg",
+            info: { title: "Rick and Morty" },
+          },
+        ]}
+      />
     </div>
   );
 };
@@ -98,27 +104,26 @@ const Filter = () => {
 
 const Navbar = ({ selectTab }) => {
   return (
-    <div className="navbar flex items-center h-20 w-full px-8 transition-all duration-300">
+    <div className="navbar flex items-center h-20 w-full px-8 transition-all duration-300 ">
       <div
         className="logo flex justify-center items-center text-white
       pr-6 h-8"
       >
         <img
-          className="h-full"
-          src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo-2006.png"
+          className="h-[22px]"
+          src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Hulu_Logo.svg"
         />
-        Original
       </div>
       <div className="navbar-menu flex items-center justify-evenly w-[550px]">
         <div
           className={`navbar-menu-item ${
-            selectTab.current == "all" ? "navbar-menu-item-selected" : ""
+            selectTab.current == "tv-shows" ? "navbar-menu-item-selected" : ""
           }`}
           onClick={() => {
-            selectTab.select("all");
+            selectTab.select("tv-shows");
           }}
         >
-          All
+          TV Shows
         </div>
         <div
           className={`navbar-menu-item ${
@@ -132,34 +137,37 @@ const Navbar = ({ selectTab }) => {
         </div>
         <div
           className={`navbar-menu-item ${
-            selectTab.current == "series" ? "navbar-menu-item-selected" : ""
+            selectTab.current == "originals" ? "navbar-menu-item-selected" : ""
           }`}
           onClick={() => {
-            selectTab.select("series");
+            selectTab.select("originals");
           }}
         >
-          Series
+          Originals
         </div>
         <div
           className={`navbar-menu-item ${
-            selectTab.current == "trends" ? "navbar-menu-item-selected" : ""
+            selectTab.current == "kids" ? "navbar-menu-item-selected" : ""
           }`}
           onClick={() => {
-            selectTab.select("trends");
+            selectTab.select("kids");
           }}
         >
-          Trends
+          Kids
         </div>
         <div
           className={`navbar-menu-item ${
-            selectTab.current == "news" ? "navbar-menu-item-selected" : ""
+            selectTab.current == "networks" ? "navbar-menu-item-selected" : ""
           }`}
           onClick={() => {
-            selectTab.select("news");
+            selectTab.select("networks");
           }}
         >
-          News
+          Networks
         </div>
+      </div>
+      <div className="actions ">
+        <SearchOutlined className="text-white font-medium bg-white/[20%] rounded-full cursor-pointer p-2" />
       </div>
     </div>
   );
