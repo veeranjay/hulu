@@ -1,3 +1,17 @@
+import { useParams } from "react-router-dom";
+import { Heading1 } from "../../components/Data_Display";
+
 const Watch = () => {
-  return <div className="watch bg-black w-full h-full flex flex-col"></div>;
+  const { id } = useParams();
+  return (
+    <div className="watch bg-black flex flex-col w-full h-full">
+      <div className="show-card w-full h-[500px] bg-white">
+        <Heading1 className="text-black">{id}</Heading1>
+      </div>
+
+      <div className="episodes-list w-full h-[500px]"></div>
+    </div>
+  );
 };
+
+export default Watch;

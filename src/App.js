@@ -1,16 +1,17 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Dashboard/Home";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-]);
+import Watch from "./pages/Watch/Watch";
 
+const NotFound = () => {
+  return <div>Not FOund bitch</div>;
+};
 export default function App() {
   return (
-
-      <RouterProvider router={router} />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/series/:id" element={<Watch />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
