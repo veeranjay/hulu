@@ -11,11 +11,15 @@
   .detailed-list .toolbar .title {
     @apply flex items-center;
   }
+  .detailed-list .list-wrapper::-webkit-scrollbar {
+    display: none;
+  }
   .detailed-list .list-wrapper {
-    @apply flex py-6 items-center w-[5000px];
+    @apply grid grid-flow-col auto-cols-max py-6 items-center 
+        overflow-x-auto overscroll-x-contain scroll-smooth;
   }
   .detailed-list .list-item-wrapper {
-    @apply mx-8;
+    @apply flex flex-col items-center  mx-8;
   }
   .detailed-list .list-item {
     @apply flex rounded-xl bg-zinc-800
@@ -39,7 +43,7 @@
   }
 
   .simple-list {
-    @apply flex flex-col py-6 px-8 w-full overflow-hidden;
+    @apply flex flex-col py-6 px-8 w-full;
   }
   .simple-list .toolbar {
     @apply flex items-center w-full px-8 text-white;
@@ -47,20 +51,27 @@
   .simple-list .toolbar .title {
     @apply flex items-center;
   }
+
+  .simple-list .list-wrapper::-webkit-scrollbar {
+    display: none;
+  }
   .simple-list .list-wrapper {
-    @apply flex py-6 items-center w-[5000px];
+    @apply grid grid-flow-col	auto-cols-max 
+    py-6 
+    overflow-x-auto overscroll-x-contain scroll-smooth;
   }
   .simple-list .list-item-wrapper {
-    @apply mx-8;
+    @apply flex flex-col items-center mx-8;
   }
+  /* under construction */
   .simple-list .list-item {
     @apply flex rounded-xl bg-zinc-800
     w-[280px] h-[450px]
     overflow-hidden
-    /* border-4 border-transparent */
+    border-4 border-transparent
     hover:border-white
-    hover:border-4
     cursor-pointer
+    transition-all duration-300
     /* animate-pulse; */;
   }
 

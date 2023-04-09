@@ -31,6 +31,8 @@ const Home = () => {
             backdrop:
               "https://www.themoviedb.org/t/p/original/vJU3rXSP9hwUuLeq8IpfsJShLOk.jpg",
           },
+          { backdrop: "" },
+          { backdrop: "" },
         ]}
       />
       <DetailedList
@@ -56,6 +58,7 @@ const Home = () => {
               "https://www.themoviedb.org/t/p/original/z9EgF0rxzNgRmiDgeokUGpLh9kY.jpg",
             info: { title: "Rick and Morty" },
           },
+          { backdrop: "", info: { title: "MMMMMM" } },
         ]}
       />
     </div>

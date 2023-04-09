@@ -17,7 +17,7 @@ export const Heading1 = styled.div`
   font-weight: 600;
   padding: 0.5em 1.5em;
 `;
-export const SimpleList = ({title, data}) => {
+export const SimpleList = ({ title, data }) => {
   return (
     <div className="simple-list">
       <div className="toolbar">
@@ -26,10 +26,10 @@ export const SimpleList = ({title, data}) => {
           <h4 className="mx-2">{title}</h4>
         </div>
         <div className="controls">
-          <div className="arrows text-xs">
+          {/* <div className="arrows text-xs">
             <ArrowLeftOutlined className="p-2 cursor-pointer rounded-full " />
             <ArrowRightOutlined className="p-2 cursor-pointer rounded-full " />
-          </div>
+          </div> */}
           <div className="button">See All</div>
         </div>
       </div>
@@ -39,7 +39,7 @@ export const SimpleList = ({title, data}) => {
             return (
               <div className="list-item-wrapper flex flex-col">
                 <div className="list-item">
-                  <img className="w-full h-full" src={item.backdrop} />
+                  {/* <img className="w-full h-full" src={item.backdrop} /> */}
                 </div>
               </div>
             );
