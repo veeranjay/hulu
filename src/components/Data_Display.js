@@ -71,7 +71,7 @@ export const DetailedList = ({ title, data }) => {
             return (
               <div className="list-item-wrapper flex flex-col">
                 <div className="list-item">
-                  <img className="w-full h-full" src={item.backdrop} />
+                  {/* <img className="w-full h-full" src={item.backdrop} /> */}
                 </div>
                 <div className="info w-full px-1 py-4">
                   {/* <div className="text-white text-sm font-base">

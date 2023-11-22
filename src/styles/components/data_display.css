@@ -25,11 +25,11 @@
     @apply flex rounded-xl bg-zinc-800
     w-[214px] h-[120px]
     overflow-hidden
-    /* border-4 border-transparent */
+    border-4 border-transparent
     hover:border-white
-    hover:border-4
     cursor-pointer
-    /* animate-pulse; */;
+    /* animate-pulse; */
+    transition-all duration-300;	
   }
 
   .detailed-list .controls {
